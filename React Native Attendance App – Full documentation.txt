@@ -1,0 +1,47 @@
+React Native Attendance App – Full Roadmap (2025)
+================================================
+Goal: Build a cross-platform (Android + iOS) attendance app with background location tracking using Transistorsoft react-native-background-geolocation
+
+PHASE 1: Preparation (Day 1–2)
+1. Buy Transistorsoft License → https://www.transistorsoft.com/shop/products/react-native-background-geolocation
+2. Install Tools:
+   - VS Code
+   - Node.js 20 LTS
+   - Yarn (npm install -g yarn)
+   - Android Studio (full)
+   - Xcode 16+ (Mac only)
+   - Real Android phone + iPhone (mandatory for background testing)
+
+PHASE 2: Project Setup (Day 3)
+3. npx react-native init AttendanceApp --version 0.75.0
+4. cd AttendanceApp
+5. yarn add react-native-background-geolocation @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context @react-native-async-storage/async-storage axios react-native-calendars react-native-image-picker react-native-permissions
+6. cd ios && pod install && cd ..
+7. Add permissions + license key (AndroidManifest.xml & Info.plist)
+
+PHASE 3: Core Development (Day 4–12)
+8. Create folders: src/components, src/screens, src/services, src/navigation
+9. Build LocationService.ts (singleton with ready(), start(), getCurrentPosition())
+10. Build screens:
+    - LoginScreen.tsx
+    - HomeScreen.tsx (quick actions grid)
+    - MarkAttendanceScreen.tsx (location + front selfie)
+    - AttendanceHistoryScreen.tsx (calendar with colors)
+    - TrackingSettings.tsx (toggle + clear locations)
+11. Set up React Navigation stack
+
+PHASE 4: Testing on Real Devices (Day 13–16)
+12. npx react-native run-android → test background
+13. npx react-native run-ios → test on iPhone
+14. Kill app → walk → reopen → verify locations still coming
+
+PHASE 5: Build Release (Day 17–20)
+15. Android: Generate keystore → ./gradlew bundleRelease → app-release.aab
+16. iOS: Open in Xcode → Archive → Upload to App Store Connect
+
+PHASE 6: Publish (Day 21+)
+17. Google Play Console ($25) → upload AAB
+18. Apple Developer ($99/year) → upload via Xcode/TestFlight
+
+Total Time: 2–4 weeks
+You’ll have a real app on both stores with full background tracking!
